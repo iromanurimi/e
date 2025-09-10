@@ -924,7 +924,7 @@ img {
   position: relative;
   overflow: hidden;
   border: none;
-  margin: 0 5px 0 5px;
+
 }
 
 .btn-primary {
@@ -1310,3 +1310,4 @@ img {
     align-items: center;
   }
 }
+
