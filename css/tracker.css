@@ -619,3 +619,167 @@
     text-align: center;
   }
 }
+/* EDD Completed Container Styles */
+.edd-completed-container {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.edd-completed-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  opacity: 0.8;
+}
+
+.edd-completed-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2.5rem;
+  color: var(--white);
+  background: linear-gradient(135deg, #ff9aa2, #ff6584);
+  box-shadow: 0 6px 15px rgba(255, 101, 132, 0.3);
+}
+
+.edd-completed-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 15px;
+}
+
+.edd-completed-message {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 25px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.suggestion-list {
+  text-align: left;
+  background: rgba(255, 101, 132, 0.08);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border-left: 4px solid var(--secondary);
+}
+
+.suggestion-list h3 {
+  color: var(--secondary);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.suggestion-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.suggestion-list li {
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  color: var(--text);
+  border-bottom: 1px solid rgba(255, 101, 132, 0.2);
+}
+
+.suggestion-list li:last-child {
+  border-bottom: none;
+}
+
+.suggestion-list li::before {
+  content: "•";
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#contact-doctor-btn {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 101, 132, 0.3);
+}
+
+#contact-doctor-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 101, 132, 0.4);
+}
+
+/* Responsive Design for EDD Container */
+@media (max-width: 768px) {
+  .edd-completed-container {
+    padding: 20px;
+  }
+  
+  .edd-completed-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  
+  .edd-completed-title {
+    font-size: 1.5rem;
+  }
+  
+  .suggestion-list {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edd-completed-container {
+    padding: 15px;
+  }
+  
+  .edd-completed-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .edd-completed-title {
+    font-size: 1.3rem;
+  }
+  
+  .edd-completed-message {
+    font-size: 0.9rem;
+  }
+  
+  .suggestion-list li {
+    padding-left: 25px;
+    font-size: 0.9rem;
+  }
+}
