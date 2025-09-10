@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asibitoci Mafi Kusa | Ciki da Raino</title>
+    <!-- Preload resources -->
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=lato:wght@400;500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/hospital.css">
+</head>
+<body>
+    <hide class="main-content">
+    <!-- Navigation Bar -->
+      <!-- Navigation Bar [Menu] -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">
+            <img src="../image/logon.svg" alt="Logo"> <label for="">Ciki da Raino</label>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Shafin Gida</a></li>
+            <li><a class="disabled" href="blog.html">Shirin Daukar Ciki</a></li>
+            <li><a class="disabled" href="blog.html">Goyon Ciki</a></li>
+            <li><a href="contact.html">Tuntuɓe Mu</a></li>
+            <li><a href="about.html">Game Da Mu</a></li>
+            <li><a href="hosapital.html">Asibiti Mafi Kusa</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu [Menu na wayar hannu] -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu-container" id="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <a href="../index.html" class="drawer-menu-item">
+                <i class="fas fa-home"></i>
+                <span>Shafin Gida</span>
+            </a>
+            <a href="../ovulation/ovulation.html" class="drawer-menu-item">
+                <i class="fas fa-venus-mars"></i>
+                <span>Kalkuletar Ovulation</span>
+            </a>
+            <a href="../tracker/tracker.html" class="drawer-menu-item">
+                <i class="fas fa-baby-carriage"></i>
+                <span>Bibiyar Ciki</span>
+            </a>
+            <a href="../hospital/hospital.html" class="drawer-menu-item">
+                <i class="fas fa-hospital"></i>
+                <span>Asibitoci Mafi Kusa</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="../index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Gida</span>
+        </a>
+        <a href="../ovulation/ovulation.html" class="bottom-nav-item">
+            <i class="fas fa-venus-mars"></i>
+            <span>Ovulation</span>
+        </a>
+        <a href="../tracker/tracker.html" class="bottom-nav-item">
+            <i class="fas fa-baby-carriage"></i>
+            <span>Bibiyar Ciki</span>
+        </a>
+        <a href="../hospital/hospital.html" class="bottom-nav-item">
+            <i class="fas fa-hospital"></i>
+            <span>Asibiti</span>
+        </a>
+        <a href="../marketplace/kasuwa.html" class="bottom-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Kasuwa</span>
+        </a>
+    </nav>
+ 
+
+ 
+ 
+    <!-- Hero Section -->
+    <section class="general-hero" data-aos="fade">
+        <div class="container-tracker">
+            <h1>Asibitoci Mafi Kusa</h1>
+            <p>Nemo asibitoci masu kula da mata masu ciki da jarirai kusa da ku tare da cikakkun bayanai da jagora.</p>
+        </div>
+    </section>
+  
+<section class="calculator-section">
+    <!-- Main Content -->
+    <div class="locator-container" data-aos="fade-up">
+        <!-- Location Controls -->
+        <div class="location-controls ">
+
+            <h2><i class="fas fa-search-location iconic"></i> Nemo Asibiti Mafi Kusa</h2>
+            
+            <div class="form-group">
+                <label for="state">Zaɓi Jiharka 
+                     <span class="tooltip" aria-label="Select Your State">
+                                 <i class="fas fa-info-circle"></i>
+                     </span>
+                </label>
+                <select id="state" name="state">
+                    <option value="">Zaɓi Jiharka</option>
+                    <option value="adamawa">Adamawa</option>
+                    <option value="bauchi">Bauchi</option>
+                    <option value="benue">Benue</option>
+                    <option value="borno">Borno</option>
+                    <option value="gombe">Gombe</option>
+                    <option value="jigawa">Jigawa</option>
+                    <option value="kaduna">Kaduna</option>
+                    <option value="kano">Kano</option>
+                    <option value="katsina">Katsina</option>
+                    <option value="kebbi">Kebbi</option>
+                    <option value="kogi">Kogi</option>
+                    <option value="kwara">Kwara</option>
+                    <option value="nasarawa">Nasarawa</option>
+                    <option value="niger">Niger</option>
+                    <option value="plateau">Plateau</option>
+                    <option value="sokoto">Sokoto</option>
+                    <option value="taraba">Taraba</option>
+                    <option value="yobe">Yobe</option>
+                    <option value="zamfara">Zamfara</option>
+                    <option value="fct">FCT (Abuja)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="city">Karamr Hukuma
+                    <span class="tooltip" aria-label="Select Your Local Goverment">
+                                 <i class="fas fa-info-circle"></i>
+                     </span>
+                </label>
+                <select id="city" name="city" disabled>
+                    <option value="">Zaɓi Karamar Hukuma</option>
+                </select>
+            </div>
+
+           
+            
+            <div class="form-group">
+                <label for="specialty">Zaɓi Nau'in Asibiti
+                    <span class="tooltip" aria-label="Types Of Hospitals">
+                                 <i class="fas fa-info-circle"></i>
+                     </span>
+
+                </label>
+                <select id="specialty" name="specialty">
+                    <option value="">Duka Asibitoci (All Hosp.)</option>
+                    <option value="maternity"> Asibitin Masu Ciki (Maternity)</option>
+                    <option value="pediatric">Asibitin Yara (Pediatric)</option>
+                    <option value="ophthalmology">Asibitin Ido (Eye)</option>
+                    <option value="orthopedic">Asibitin Kashi (Orthopedic)</option>
+                    <option value="psychiatric">Asibitin Masu Tabin Hankali (Psychiatric)</option>
+                    <option value="teaching">Asibitin Koyarwa (Teaching Hosp.)</option>
+                    <option value="general">Asibitin Bai Daya (General Hosp.)</option>
+                    <option value="specialist">Asibitin Kwararru (Specialist Hosp.)</option>
+                    <option value="pharmacy">Wuraren Sai Da Magani (Pharmacy)</option>
+                </select>
+            </div>
+            <div class="button-group">
+            <button class="btn btn-primary" id="detect-location">
+                <i class="fas fa-location-arrow"></i>
+                <span>Gano Inda Kake</span>
+            </button>
+            
+            <button class="btn btn-primary1" id="search-btn" disabled>
+                <i class="fas fa-search"></i> Nemo Asibitoci
+            </button>
+            </div>
+        </div>
+       
+        <!-- Map and Results -->
+        <div class="map-results">
+            <div id="hospital-map"></div>
+            
+            <div class="hospital-list">
+                <h2><i class="fas fa-hospital"></i> Asibitoci Kusa</h2>
+                <div id="hospital-results">
+                    <p class="no-results">Zaɓi jiha da birni don nemo asibitoci</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+   <!-- Footer -->
+    <footer class="footer" style="display: none;">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Ciki da Raino</h3>
+                    <p>Jarida domin lafiyar uwa da ta jariri</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Hanyoyin Hanya</h4>
+                    <ul>
+                        <li><a href="index.html">Shafin Gida</a></li>
+                        <li><a href="about.html">Game Da Mu</a></li>
+                        <li><a href="blog.html">Labarai</a></li>
+                        <li><a href="contact.html">Tuntuɓe Mu</a></li>
+                     </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kayan Aiki</h4>
+                    <ul>
+                        <li><a href="ovulation.html">Kalkuletar Ovulation</a></li>
+                        <li><a href="tracker.html">Bibiyar Ciki</a></li>
+                        <li><a href="hospital.html">Asibitoci Mafi Kusa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Kasance da Sabbin Labarai</h4>
+                    <form class="footer-newsletter-form">
+                        <input type="email" placeholder="Adireshin email" required aria-label="Email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p style="color: aliceblue;">&copy; <span id="year"></span> Yar'aro Creative. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">07062121414</a>
+                    <a href="#">cikidarainocommunity@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Tooltip functionality
+    const tooltips = document.querySelectorAll('.tooltip');
+    tooltips.forEach(tooltip => {
+        // For touch devices
+        tooltip.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            tooltip.classList.add('active');
+            setTimeout(() => tooltip.classList.remove('active'), 3000);
+        });
+        
+        // For keyboard navigation
+        tooltip.addEventListener('focus', function() {
+            tooltip.classList.add('active');
+        });
+        
+        tooltip.addEventListener('blur', function() {
+            tooltip.classList.remove('active');
+        });
+    });
+
+    </script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenuContainer = document.getElementById('mobile-menu-container');
+        const overlay = document.getElementById('overlay');
+        
+        hamburger.addEventListener('click', function() {
+            mobileMenuContainer.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', function() {
+            mobileMenuContainer.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        overlay.addEventListener('click', function() {
+            mobileMenuContainer.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuContainer.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Initialize Map (centered on Nigeria)
+        const map = L.map('hospital-map').setView([9.0820, 8.6753], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Custom Icons
+        const hospitalIcon = L.divIcon({
+            className: 'custom-marker',
+            html: '<i class="fas fa-hospital" style="color: #E75480;"></i>',
+            iconSize: [30, 30],
+            iconAnchor: [15, 30]
+        });
+
+        const userIcon = L.divIcon({
+            className: 'custom-marker',
+            html: '<i class="fas fa-user" style="color: #6B8E8E;"></i>',
+            iconSize: [30, 30],
+            iconAnchor: [15, 30]
+        });
+
+        // Hospital Database (with precise coordinates)
+        const hospitalDatabase = {
+            kano: [
+        {
+            id: 1,
+            name: "Asibitin Koyarwa na Jami'ar Bayero",
+            lat: 11.9964,
+            lng: 8.5167,
+            type: "maternity",
+            address: "Titin Aminu Kano, Kano",
+            phone: "+2348123456789",
+            hours: "8:00 AM - 10:00 PM",
+            city: "dala"
+        },
+        {
+            id: 2,
+            name: "Asibitin Aminu Kano",
+            lat: 12.0026,
+            lng: 8.5302,
+            type: "general",
+            address: "Titin Zaria, Kano",
+            phone: "+2348098765432",
+            hours: "24/7",
+            city: "ungogo"
+        }
+    ],
+    fct: [
+        {
+            id: 3,
+            name: "Asibitin Koyarwa na Jami'ar Abuja",
+            lat: 9.0765,
+            lng: 7.3986,
+            type: "teaching",
+            address: "Titin Gwagwalada, Abuja",
+            phone: "+2348156789012",
+            hours: "24/7",
+            city: "abuja"
+        },
+        {
+            id: 4,
+            name: "Asibitin Mata da Yara na Gwagwalada",
+            lat: 8.9434,
+            lng: 7.0616,
+            type: "maternity",
+            address: "Gwagwalada, Abuja",
+            phone: "+2348167890123",
+            hours: "24/7",
+            city: "abuja"
+        }
+    ]
+
+        };
+
+        // Cities Data
+        const citiesData = {
+            kano: ["Ajingi", "Albasu", "Bagwai", "Bebeji", "Bichi", "Bunkure", "Dala", "Dambatta",
+            "Dawakin Kudu", "Dawakin Tofa", "Doguwa", "Fagge", "Gabasawa", "Garko", "Garun Mallam",
+            "Gaya", "Gezawa", "Gwale", "Gwarzo", "Kabo", "Kano Municipal", "Karaye", "Kibiya",
+            "Kiru", "Kumbotso", "Kunchi", "Kura", "Madobi", "Makoda", "Minjibir", "Nasarawa",
+            "Rano", "Rimin Gado", "Rogo", "Shanono", "Sumaila", "Takai", "Tarauni", "Tofa",
+            "Tsanyawa", "Tudun Wada", "Ungogo", "Warawa", "Wudil"],
+            kaduna: [
+            "Birnin Gwari", "Chikun", "Giwa", "Igabi", "Ikara", "Jaba", "Jema'a", "Kachia",
+            "Kaduna North", "Kaduna South", "Kagarko", "Kajuru", "Kaura", "Kauru", "Kubau",
+            "Kudan", "Lere", "MakarfI", "Sabon Gari", "Sanga", "Soba", "Zangon Kataf", "Zaria"
+          ],
+          kebbi: [
+            "Aleiro", "Arewa Dandi", "Argungu", "Augie", "Bagudo", "Birnin Kebbi", "Bunza",
+            "Dandi", "Fakai", "Gwandu", "Jega", "Kalgo", "Koko/Besse", "Maiyama", "Ngaski",
+            "Sakaba", "Shanga", "Suru", "Wasagu/Danko", "Yauri", "Zuru"
+          ],
+          zamfara: [
+            "Anka", "Bakura", "Birnin Magaji/Kiyaw", "Bukkuyum", "Bungudu", "Gummi",
+            "Gusau", "Kaura Namoda", "Maradun", "Maru", "Shinkafi", "Talata Mafara",
+            "Chafe (Tsafe)", "Zurmi"
+          ],
+          sokoto: [
+            "Binji", "Bodinga", "Dange Shuni", "Gada", "Goronyo", "Gudu", "Gwadabawa",
+            "Illela", "Isa", "Kebbe", "Kware", "Rabah", "Sabon Birni", "Shagari", "Silame",
+            "Sokoto North", "Sokoto South", "Tambuwal", "Tangaza", "Tureta", "Wamako", "Wurno", "Yabo"
+          ],
+          jigawa: [
+            "Auyo", "Babura", "Biriniwa", "Birnin Kudu", "Buji", "Dutse", "Gagarawa",
+            "Garki", "Gumel", "Guri", "Gwaram", "Gwiwa", "Hadejia", "Jahun", "Kafin Hausa",
+            "Kaugama", "Kazaure", "Kiri Kasama", "Kiyawa", "Maigatari", "Malam Madori",
+            "Miga", "Ringim", "Roni", "Sule Tankarkar", "Taura", "Yankwashi"
+          ],
+          niger: [
+            "Agaie", "Agwara", "Bida", "Borgu", "Bosso", "Chanchaga", "Edati", "Gbako",
+            "Gurara", "Katcha", "Kontagora", "Lapai", "Lavun", "Magama", "Mariga", "Mashegu",
+            "Mokwa", "Moya", "Paikoro", "Rafi", "Rijau", "Shiroro", "Suleja", "Tafa", "Wushishi"
+          ],
+          kogi: [
+            "Adavi", "Ajaokuta", "Ankpa", "Bassa", "Dekina", "Ibaji", "Idah", "Igalamela Odolu",
+            "Ijumu", "Kabba/Bunu", "Kogi", "Lokoja", "Mopa-Muro", "Ofu", "Ogori/Mangongo", 
+            "Okehi", "Okene", "Olamaboro", "Omala", "Yagba East", "Yagba West"
+          ],
+          benue: [
+            "Ado", "Agatu", "Apa", "Buruku", "Gboko", "Guma", "Gwer East", "Gwer West",
+            "Katsina-Ala", "Konshisha", "Kwande", "Logo", "Makurdi", "Obi", "Ogbadibo",
+            "Ohimini", "Oju", "Okpokwu", "Otukpo", "Tarka", "Ukum", "Ushongo", "Vandeikya"
+          ],
+          kwara: [
+            "Asa", "Baruten", "Edu", "Ekiti", "Ifelodun", "Ilorin East", "Ilorin South",
+            "Ilorin West", "Irepodun", "Isin", "Kaiama", "Moro", "Offa", "Oke Ero", 
+            "Oyun", "Pategi"
+          ],
+          Nasarawa: [
+            "Akwanga", "Awe", "Doma", "Karu", "Keana", "Keffi", "Kokona", "Lafia",
+            "Nasarawa", "Nasarawa Egon", "Obi", "Toto", "Wamba"
+          ],
+          plateau: [
+            "Barkin Ladi", "Bassa", "Bokkos", "Jos East", "Jos North", "Jos South",
+            "Kanam", "Kanke", "Langtang North", "Langtang South", "Mangu", "Mikang",
+            "Pankshin", "Qua'an Pan", "Riyom", "Shendam", "Wase"
+          ],
+          bauchi: [
+            "Alkaleri", "Bauchi", "Bogoro", "Damban", "Darazo", "Dass", "Gamawa",
+            "Ganjuwa", "Giade", "Itas/Gadau", "Jama'are", "Katagum", "Kirfi", 
+            "Misau", "Ningi", "Shira", "Tafawa Balewa", "Toro", "Warji", "Zaki"
+          ],
+          gombe: [
+            "Akko", "Balanga", "Billiri", "Dukku", "Funakaye", "Gombe", "Kaltungo",
+            "Kwami", "Nafada", "Shongom", "Yamaltu/Deba"
+          ],
+          borno: [
+            "Abadam", "Askira/Uba", "Bama", "Bayo", "Biu", "Chibok", "Damboa", 
+            "Dikwa", "Gubio", "Guzamala", "Gwoza", "Hawul", "Jere", "Kaga", 
+            "Kala/Balge", "Konduga", "Kukawa", "Kwaya Kusar", "Mafa", "Magumeri",
+            "Maiduguri", "Marte", "Mobbar", "Monguno", "Ngala", "Nganzai", "Shani"
+          ],
+          yobe: [
+            "Bade", "Bursari", "Damaturu", "Fika", "Fune", "Geidam", "Gujba",
+            "Gulani", "Jakusko", "Karasuwa", "Machina", "Nangere", "Nguru",
+            "Potiskum", "Tarmuwa", "Yunusari", "Yusufari"
+          ],
+          adamawa: [
+            "Demsa", "Fufore", "Ganye", "Girei", "Gombi", "Guyuk", "Hong",
+            "Jada", "Lamurde", "Madagali", "Maiha", "Mayo-Belwa", "Michika",
+            "Mubi North", "Mubi South", "Numan", "Shelleng", "Song", 
+            "Toungo", "Yola North", "Yola South"
+          ],
+          katsina: [
+            "Bakori", "Batagarawa", "Batsari", "Baure", "Bindawa", "Charanchi", "Dan Musa",
+            "Dandume", "Danja", "Daura", "Dutsi", "Dutsin-ma", "Faskari",
+            "Funtua", "Ingawa", "Jibia", "Kafur", "Kaita", 
+            "Kankara", "Kankia", "Kurfi", "Katsina", "Kusada", "Mai'Adua", "Malumfashi", "Mani", "Mashi", "Matazu", "Musawa",
+            "Rimi", "Sabuwa", "Safana", "Sandamu", "Zango"
+          ],
+          taraba: [
+            "Ardo Kola", "Bali", "Donga", "Gashaka", "Gassol", "Ibi", "Jalingo",
+            "Karim Lamido", "Kurmi", "Lau", "Sardauna", "Takum", "Ussa", "Wukari", "Yorro", "Zing"
+          ]   
+        };
+
+        // Current markers
+        let currentMarkers = [];
+        let userMarker = null;
+
+        // DOM elements
+        const stateSelect = document.getElementById('state');
+        const citySelect = document.getElementById('city');
+        const specialtySelect = document.getElementById('specialty');
+        const detectLocationBtn = document.getElementById('detect-location');
+        const searchBtn = document.getElementById('search-btn');
+        const hospitalResults = document.getElementById('hospital-results');
+
+        // Check if geolocation is supported
+        if (!navigator.geolocation) {
+            detectLocationBtn.style.display = 'none';
+            console.warn("Geolocation is not supported by this browser");
+        }
+
+        // State change handler
+        stateSelect.addEventListener('change', function() {
+            const state = this.value;
+            
+            // Reset city select
+            citySelect.innerHTML = '<option value="">Zaɓi Karamar Hukuma</option>';
+            citySelect.disabled = !state;
+            searchBtn.disabled = true;
+            
+            if (state) {
+                // Add cities for selected state
+                citiesData[state].forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city.toLowerCase();
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+            
+            // Clear previous results
+            clearResults();
+        });
+
+        // City change handler
+        citySelect.addEventListener('change', function() {
+            searchBtn.disabled = !this.value;
+            
+            if (!this.value) {
+                clearResults();
+            }
+        });
+
+        // Detect location handler (FIXED VERSION)
+        detectLocationBtn.addEventListener('click', function() {
+            // Show loading state
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Jira! Ana gano inda kuke...';
+            this.classList.add('loading');
+            this.disabled = true;
+            
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    // Restore button state
+                    detectLocationBtn.innerHTML = '<i class="fas fa-location-arrow"></i> Gano Inda Kuke';
+                    detectLocationBtn.classList.remove('loading');
+                    detectLocationBtn.disabled = false;
+                    
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+                    
+                    // Remove previous user marker if exists
+                    if (userMarker) {
+                        map.removeLayer(userMarker);
+                    }
+                    
+                    // Add user marker
+                    userMarker = L.marker([userLat, userLng], { 
+                        icon: userIcon,
+                        title: "Your Location" 
+                    }).addTo(map)
+                      .bindPopup("Inda kuke (Your Location)")
+                      .openPopup();
+                    
+                    // Center map on user's location with zoom
+                    map.setView([userLat, userLng], 14);
+                    
+                    // Find the nearest state
+                    findNearestState(userLat, userLng);
+                    
+                    // Enable search button
+                    searchBtn.disabled = false;
+                },
+                function(error) {
+                    // Restore button state
+                    detectLocationBtn.innerHTML = '<i class="fas fa-location-arrow"></i> Sake Gano Inda Kuke';
+                    detectLocationBtn.classList.remove('loading');
+                    detectLocationBtn.disabled = false;
+                    
+                    let errorMessage;
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            errorMessage = "Ba ku bada izinin gano inda kuke ba. Da fatan za a shigar da shi da hannu.";
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            errorMessage = "Bayanin inda kuke ba ya samuwa a halin yanzu.";
+                            break;
+                        case error.TIMEOUT:
+                            errorMessage = "An kasa gano inda kuke a cikin lokaci.";
+                            break;
+                        default:
+                            errorMessage = "An sami kuskure yayin gano inda kuke.";
+                    }
+                    alert(errorMessage);
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                }
+            );
+        });
+
+        searchBtn.addEventListener('click', function() {
+    const state = stateSelect.value;
+    const city = citySelect.value.toLowerCase(); // Convert to lowercase for comparison
+    const specialty = specialtySelect.value;
+    
+    // Check if state exists in database
+    if (!hospitalDatabase[state]) {
+        hospitalResults.innerHTML = '<p class="no-results">Babu asibitoci a wannan jiha a cikin bayananmu</p>';
+        return;
+    }
+
+    // Filter hospitals
+    let filteredHospitals = hospitalDatabase[state].filter(hospital => {
+        // Filter by city if selected
+        if (city && hospital.city !== city) {
+            return false;
+        }
+        // Filter by specialty if selected
+        if (specialty && hospital.type !== specialty) {
+            return false;
+        }
+        return true;
+    });
+    
+    // Display results
+    displayResults(filteredHospitals);
+    
+    // Show on map
+    showHospitalsOnMap(filteredHospitals);
+    
+    // Zoom to show all markers
+    if (filteredHospitals.length > 0) {
+        const bounds = new L.LatLngBounds(
+            filteredHospitals.map(h => [h.lat, h.lng])
+        );
+        if (userMarker) {
+            bounds.extend(userMarker.getLatLng());
+        }
+        map.fitBounds(bounds);
+    } else {
+        hospitalResults.innerHTML = '<p class="no-results">Babu asibitoci da suka dace da zaɓin ku</p>';
+    }
+});
+        // Helper function to clear results
+        function clearResults() {
+            hospitalResults.innerHTML = '<p class="no-results">Zaɓi jiha da birni don nemo asibitoci</p>';
+            
+            // Clear markers
+            currentMarkers.forEach(marker => map.removeLayer(marker));
+            currentMarkers = [];
+        }
+
+        // Helper function to display results
+        function displayResults(hospitals) {
+            if (hospitals.length === 0) {
+                hospitalResults.innerHTML = '<p class="no-results">Babu asibitoci da suka dace da zaɓin ku</p>';
+                return;
+            }
+            
+            let html = '';
+            hospitals.forEach(hospital => {
+                // Calculate distance if user location is available
+                let distanceText = '';
+                if (userMarker) {
+                    const userLatLng = userMarker.getLatLng();
+                    const distance = calculateDistance(
+                        userLatLng.lat, userLatLng.lng,
+                        hospital.lat, hospital.lng
+                    );
+                    distanceText = `Akwai nisan ${distance.toFixed(1)}km daga inda kuke`;
+                } else {
+                    distanceText = 'A cikin birni';
+                }
+                
+                // Get specialty text
+                const specialtyText = {
+                    'maternity': 'Asibitin Masu Ciki (Maternity)',
+                    'pediatric': 'Asibitin Yara (Pediatric)',
+                    'general': 'Asibitin Bai ɗaya (General)',
+                    'orthopedic': 'Asibitin Kashi (Orthopedic)',
+                    'ophthalmology': 'Asibitin Ido (Eye Hosp.)',
+                    'clinic': 'Karamin Asibiti (Clinic)',
+                    'psychiatric': 'Asibitin Masu Tabin Hankali (Psychiatric)',
+                    'pharmacy': 'Wajen Sai Da Magani (Pharmacy)',
+                    'specialist': 'Asibitin Kwararru (Specialist Hosp.)',
+                    'teaching': 'Asibitin Koyarwa (Teaching Hosp.)'
+                }[hospital.type] || hospital.type;
+                
+                html += `
+                <div class="hospital-item" data-id="${hospital.id}">
+                    <div class="hospital-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="hospital-info">
+                        <h3>${hospital.name}</h3>
+                        <span class="hospital-specialty">${specialtyText}</span>
+                        <div class="hospital-details">
+                            <span class="hospital-detail">
+                                <i class="fas fa-map-marker-alt"></i> ${distanceText}
+                            </span>
+                            <span class="hospital-detail">
+                                <i class="fas fa-clock"></i> Buɗe yau: ${hospital.hours}
+                            </span>
+                            <span class="hospital-detail">
+                                <i class="fas fa-phone"></i> ${hospital.phone}
+                            </span>
+                        </div>
+                        <div class="hospital-actions">
+                            <button class="action-btn primary" onclick="showDirections(${hospital.lat}, ${hospital.lng})">
+                                <i class="fas fa-directions"></i> Jagora
+                            </button>
+                            <button class="action-btn secondary" onclick="callHospital('${hospital.phone}')">
+                                <i class="fas fa-phone"></i> Kira
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            
+            hospitalResults.innerHTML = html;
+        }
+
+        // Helper function to show hospitals on map
+        function showHospitalsOnMap(hospitals) {
+            // Clear previous markers
+            currentMarkers.forEach(marker => map.removeLayer(marker));
+            currentMarkers = [];
+            
+            // Add new markers
+            hospitals.forEach(hospital => {
+                const marker = L.marker([hospital.lat, hospital.lng], { icon: hospitalIcon })
+                    .addTo(map)
+                    .bindPopup(`
+                        <h3>${hospital.name}</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> ${hospital.address}</p>
+                        <p><i class="fas fa-phone"></i> ${hospital.phone}</p>
+                        <p><i class="fas fa-clock"></i> ${hospital.hours}</p>
+                        <button onclick="callHospital('${hospital.phone}')" 
+                            style="background-color: var(--accent); color: white; 
+                            border: none; padding: 5px 10px; border-radius: 5px; 
+                            cursor: pointer; margin-top: 5px;">
+                            <i class="fas fa-phone"></i> Kira
+                        </button>
+                    `);
+                
+                currentMarkers.push(marker);
+            });
+        }
+
+        // Helper function to find nearest state
+        function findNearestState(lat, lng) {
+            const stateCenters = {
+                kano: { lat: 11.9964, lng: 8.5167 },
+                kaduna: { lat: 10.5167, lng: 7.4333 },
+                katsina: { lat: 12.9885, lng: 7.6000 },
+                sokoto: { lat: 13.0600, lng: 5.2400 },
+                zamfara: { lat: 12.1620, lng: 6.2213 },
+                kebbi: { lat: 12.4500, lng: 4.1999 },
+                jigawa: { lat: 12.2280, lng: 9.5616 },
+                yobe: { lat: 12.0000, lng: 11.5000 },
+                borno: { lat: 11.8333, lng: 13.1500 },
+                bauchi: { lat: 10.3158, lng: 9.8442 },
+                gombe: { lat: 10.2900, lng: 11.1700 },
+                taraba: { lat: 7.8700, lng: 10.9800 },
+                adamawa: { lat: 9.3300, lng: 12.4300 },
+                niger: { lat: 9.9300, lng: 5.9800 },
+                kogi: { lat: 7.8000, lng: 6.7400 },
+                nasarawa: { lat: 8.5400, lng: 8.1800 },
+                benue: { lat: 7.3300, lng: 8.7400 },
+                plateau: { lat: 9.2200, lng: 9.5100 },
+                kwara: { lat: 8.5000, lng: 4.5500 },
+                fct: { lat: 9.0765, lng: 7.3986 }
+            };
+            
+            let nearestState = '';
+            let minDistance = Infinity;
+            
+            for (const state in stateCenters) {
+                const distance = calculateDistance(
+                    lat, lng,
+                    stateCenters[state].lat, stateCenters[state].lng
+                );
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    nearestState = state;
+                }
+            }
+            
+            if (nearestState) {
+                stateSelect.value = nearestState;
+                stateSelect.dispatchEvent(new Event('change'));
+            }
+        }
+
+        // Helper function to calculate distance between two coordinates (in km)
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Radius of the earth in km
+            const dLat = deg2rad(lat2 - lat1);
+            const dLon = deg2rad(lon2 - lon1);
+            const a = 
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        function deg2rad(deg) {
+            return deg * (Math.PI/180);
+        }
+
+        // Global functions for button actions
+        window.showDirections = function(lat, lng) {
+            if (userMarker) {
+                const userLatLng = userMarker.getLatLng();
+                window.open(`https://www.google.com/maps/dir/?api=1&origin=${userLatLng.lat},${userLatLng.lng}&destination=${lat},${lng}&travelmode=driving`);
+            } else {
+                window.open(`https://www.google.com/maps/?q=${lat},${lng}`);
+            }
+        };
+
+        window.callHospital = function(phone) {
+            window.location.href = `tel:${phone}`;
+        };
+    </script>
+</body>
+</html>
+

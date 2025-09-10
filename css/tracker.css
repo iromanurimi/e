@@ -1,0 +1,621 @@
+.tracker-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.tracker-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.tracker-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  opacity: 0.8;
+}
+
+.tracker-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  margin-left: 39%;
+}
+.tracker-card:hover .card-icon {
+  transform: scale(1.1);
+}
+
+.due-date-card .card-icon {
+  background: linear-gradient(135deg, #ff6584, #ff9aa2);
+}
+
+.progress-card .card-icon {
+  background: linear-gradient(135deg, #6c63ff, #8580ff);
+}
+
+.baby-dev-card .card-icon {
+  background: linear-gradient(135deg, #1eaccb, #4cc9f0);
+}
+
+.health-tips-card .card-icon {
+  background: linear-gradient(135deg, #4cc9f0, #4ae0f0);
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Due Date Card Specific Styles */
+.due-date {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 8px;
+  text-align: center;
+  background: rgba(255, 101, 132, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.countdown {
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-left: 4px solid var(--secondary);
+  background: rgba(255, 101, 132, 0.1);
+  color: var(--text);
+}
+
+/* Progress Card Specific Styles */
+.week-display {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+  text-align: center;
+  background: rgba(108, 99, 255, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.progress-container {
+  margin-bottom: 15px;
+}
+
+.progress-container {
+  margin-top: 1.5rem;
+}
+
+.progress-container h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: rgba(108, 99, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  border-radius: 10px;
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.progress-percent {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: right;
+  font-weight: 600;
+}
+
+.month-display {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: rgba(107, 142, 142, 0.1);
+  padding: 6px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  align-self: center;
+}
+
+.trimester-info {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  background: rgba(108, 99, 255, 0.1);
+  border-radius: 12px;
+  display: inline-block;
+  align-self: center;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+  text-align: center;
+  font-style: italic;
+  color: var(--text);
+}
+
+.baby-size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.baby-size {
+  flex: 1;
+  min-width: 200px;
+}
+
+.size-comparison {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--accent);
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--accent-light),
+    rgba(30, 172, 203, 0.15)
+  );
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.size-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--accent-light),
+    rgba(255, 255, 255, 0.8)
+  );
+  padding: 15px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.tracker-card:hover .size-image {
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(30, 172, 203, 0.25);
+}
+
+.size-image::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-light);
+  animation: pulse 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+.size-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.tracker-card:hover .size-image img {
+  transform: scale(1.05);
+}
+
+.baby-milestones {
+  margin-top: 15px;
+  background: linear-gradient(
+    135deg,
+    var(--success-light),
+    rgba(76, 201, 240, 0.1)
+  );
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.tracker-card:hover .baby-milestones {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(76, 201, 240, 0.15);
+}
+
+.baby-milestones ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.baby-milestones li {
+  padding: 12px 0;
+  padding-left: 35px;
+  position: relative;
+  font-size: 16px;
+  color: var(--text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.baby-milestones li:last-child {
+  border-bottom: none;
+}
+
+.baby-milestones li:hover {
+  color: var(--dark);
+  transform: translateX(5px);
+}
+
+.baby-milestones li::before {
+  content: "✓";
+  color: var(--success);
+  font-weight: bold;
+  font-size: 16px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+  background: rgba(76, 201, 240, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.baby-milestones li:hover::before {
+  background: var(--success);
+  color: white;
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tracker-card {
+    padding: 20px;
+  }
+
+  .card-content h3 {
+    font-size: 20px;
+  }
+
+  .size-comparison {
+    font-size: 18px;
+  }
+
+  .size-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .baby-milestones li {
+    font-size: 15px;
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tracker-card {
+    padding: 15px;
+  }
+
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+  }
+
+  .size-comparison {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  .size-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .baby-milestones {
+    padding: 15px;
+  }
+
+  .baby-milestones li {
+    font-size: 14px;
+    padding: 10px 0;
+    padding-left: 28px;
+  }
+}
+
+/* Health Tips Card Specific Styles */
+.health-tip {
+  background: linear-gradient(
+    135deg,
+    rgba(76, 201, 240, 0.15),
+    rgba(74, 224, 240, 0.15)
+  );
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+  border-left: 4px solid var(--success);
+}
+
+.health-tip p {
+  margin: 0;
+  color: var(--text);
+}
+
+.reminder {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: 12px 16px;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(255, 101, 132, 0.2);
+  margin-top: auto;
+}
+
+.reminder i {
+  font-size: 1.1rem;
+}
+
+/* Visual Progress Enhancements */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tracker-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tracker-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.due-date-card {
+  animation-delay: 0.1s;
+}
+.progress-card {
+  animation-delay: 0.2s;
+}
+.baby-dev-card {
+  animation-delay: 0.3s;
+}
+.health-tips-card {
+  animation-delay: 0.4s;
+}
+
+/* Additional styles for the new features */
+.week-details-container {
+  margin-top: 2rem;
+  background-color: var(--surface);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.week-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.week-tab {
+  padding: 0.8rem 1.2rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.week-tab.active {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.changes-list,
+.problems-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.changes-list li,
+.problems-list li {
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.changes-list li {
+  background-color: rgba(76, 201, 240, 0.1);
+  border-left: 4px solid var(--success);
+}
+
+.problems-list li {
+  background-color: rgba(255, 107, 139, 0.1);
+  border-left: 4px solid var(--secondary);
+}
+
+.changes-list li::before,
+.problems-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.changes-list li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234CC9F0'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+}
+
+.problems-list li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF6B8B'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E");
+}
+
+.week-details-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .week-tabs {
+    flex-direction: column;
+  }
+
+  .week-tab {
+    border-radius: 8px;
+    text-align: center;
+  }
+}

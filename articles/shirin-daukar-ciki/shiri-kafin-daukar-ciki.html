@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciki da Raino - Shirin Daukar Ciki</title>
+    <!-- Preload resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Modern fonts -->
+      <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+   
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+       
+
+        /* Post Content */
+        .post-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 900px) {
+            .post-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-content1 {
+            background: white;
+            border-radius: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .post-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .post-body h2 {
+            color: #5e7ce2;
+            margin: 30px 0 15px;
+            font-size: 1.8rem;
+        }
+
+        .post-body h3 {
+            color: #ff9aa2;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        .post-body p {
+            margin-bottom: 20px;
+        }
+
+        .post-body ul, .post-body ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post-body li {
+            margin-bottom: 10px;
+        }
+
+        .post-body blockquote {
+            border-left: 4px solid #a2d7d8;
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-widget:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-widget h3 {
+            color: #5e7ce2;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .related-posts {
+            list-style: none;
+        }
+
+        .related-post {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .related-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .related-post img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .related-post-content h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .related-post-content a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .related-post-content a:hover {
+            color: #5e7ce2;
+        }
+
+        .related-post-content .date {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .categories-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .categories-list a:hover {
+            color: #5e7ce2;
+        }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #f0f7ff;
+            color: #5e7ce2;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: #5e7ce2;
+            color: white;
+        }
+
+        /* Social Sharing */
+        .social-sharing {
+            display: flex;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .facebook {
+            background: #3b5998;
+        }
+
+        .twitter {
+            background: #1da1f2;
+        }
+
+        .whatsapp {
+            background: #25d366;
+        }
+
+        .linkedin {
+            background: #0077b5;
+        }
+
+       
+    </style>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+</head>
+<body>
+   <hide class="main-content">
+    <!-- Navigation Bar [Menu] -->
+       <!-- Navigation Bar [Menu] -->
+    <nav class="navbar">
+        <a href="../../index.html" class="logo">
+            <img src="../../image/logon.svg" alt="Logo"> <label for="">Ciki da Raino</label>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Shafin Gida</a></li>
+            <li><a class="disabled" href="blog.html">Shirin Daukar Ciki</a></li>
+            <li><a class="disabled" href="blog.html">Goyon Ciki</a></li>
+            <li><a href="contact.html">Tuntuɓe Mu</a></li>
+            <li><a href="about.html">Game Da Mu</a></li>
+            <li><a href="hosapital.html">Asibiti Mafi Kusa</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu [Menu na wayar hannu] -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu-container" id="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <a href="../index.html" class="drawer-menu-item">
+                <i class="fas fa-home"></i>
+                <span>Shafin Gida</span>
+            </a>
+            <a href="../ovulation/ovulation.html" class="drawer-menu-item">
+                <i class="fas fa-venus-mars"></i>
+                <span>Kalkuletar Ovulation</span>
+            </a>
+            <a href="../tracker/tracker.html" class="drawer-menu-item">
+                <i class="fas fa-baby-carriage"></i>
+                <span>Bibiyar Ciki</span>
+            </a>
+            <a href="../hospital/hospital.html" class="drawer-menu-item">
+                <i class="fas fa-hospital"></i>
+                <span>Asibitoci Mafi Kusa</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="../index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Gida</span>
+        </a>
+        <a href="../ovulation/ovulation.html" class="bottom-nav-item">
+            <i class="fas fa-venus-mars"></i>
+            <span>Ovulation</span>
+        </a>
+        <a href="../tracker/tracker.html" class="bottom-nav-item">
+            <i class="fas fa-baby-carriage"></i>
+            <span>Bibiyar Ciki</span>
+        </a>
+        <a href="../hospital/hospital.html" class="bottom-nav-item">
+            <i class="fas fa-hospital"></i>
+            <span>Asibiti</span>
+        </a>
+        <a href="../marketplace/kasuwa.html" class="bottom-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Kasuwa</span>
+        </a>
+    </nav>
+ 
+
+
+ 
+    <!-- Hero Section -->
+    <section class="tracker-hero" data-aos="fade">
+        <div class="container-tracker">
+            <h1>Muhimman Bayanai - Shirye-Shirye Kafin Daukar Ciki</h1>
+           
+                   </div>
+    </section>
+   <!-- Post Content -->
+    <section class="container post-content">
+        <div class="main-content1">
+           
+            <div class="post-body">
+                
+
+    
+            <div class="sidebar-widget">
+               <h3>Shiryawa Kafin Daukar Ciki </h3>
+                <ul class="related-posts">
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Me Ake Nufi Da Shiryawa Kafin Daukar Ciki?</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Ayyukan jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Muhimmancin Shiryawa Kafin Daukar Ciki</a></h4>
+                            <div class="date">5 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="sidebar-widget">
+               <h3>Bincikar Lafiyar Jiki</h3>
+                <ul class="related-posts">
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Muhimmanci Duban Lafiyar Jiki Gaba</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Ayyukan jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Gwaje-Gwaje Da Binciken Lafiyar Jiki</a></h4>
+                            <div class="date">5 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="sidebar-widget">
+               <h3>Tsarin Iyali (family Planning)</h3>
+                <ul class="related-posts">
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Dakatar da Tsarin Iyali Kafin Daukar Ciki: Abin Da Ya Kamata Ku Sani</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="sidebar-widget">
+               <h3>Rigafi Da Kariya</h3>
+                <ul class="related-posts">
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Rigakafin Da Ake Buƙata Kafin Daukar Ciki</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="sidebar-widget">
+               <h3> Abinci Mai Gina Jiki</h3>
+                <ul class="related-posts">
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Muhimmancin Cin Abinci Mai Gina Jiki Kafin Daukar Ciki</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Muhimmancin Fara Shan Folic Acid Da Vitamins Kafin Daukar Ciki</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Abincin Da Ya Kamata a Guje Musu Kafin Daukar Ciki</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="sidebar-widget">
+               <h3>Fitowar Kwan Haihuwa (Ovulation)</h3>
+                <ul class="related-posts">
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Menene Ovulation, Alamomin Ovulation Da Yadda Ake Gano Lokacin Ovulation.</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="sidebar-widget">
+               <h3> Motsa Jiki</h3>
+                <ul class="related-posts">
+                    <li class="related-post">
+                        <img src="https://images.unsplash.com/photo-1551893478-d726eaf0442c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Abinci mai gina jiki">
+                        <div class="related-post-content">
+                            <h4><a href="#">Tasirin Motsa Jiki Kafin Daukar Ciki</a></h4>
+                            <div class="date">10 Oktoba, 2023</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            
+
+               
+    
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        offset: 100,
+        once: true
+    });
+
+      // Mobile Menu Toggle
+      const hamburger = document.getElementById('hamburger');
+      const closeMenu = document.getElementById('close-menu');
+      const mobileMenuContainer = document.getElementById('mobile-menu-container');
+      const overlay = document.getElementById('overlay');
+
+      hamburger.addEventListener('click', function() {
+          mobileMenuContainer.classList.add('open');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+      });
+
+      closeMenu.addEventListener('click', function() {
+          mobileMenuContainer.classList.remove('open');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+      });
+
+      overlay.addEventListener('click', function() {
+          mobileMenuContainer.classList.remove('open');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('.mobile-menu a').forEach(link => {
+          link.addEventListener('click', function() {
+              mobileMenuContainer.classList.remove('open');
+              overlay.classList.remove('active');
+              document.body.style.overflow = '';
+          });
+      });
+
+
+
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle (simplified version)
+    document.getElementById('hamburger').addEventListener('click', function() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+</script>
+</body>
+</html>

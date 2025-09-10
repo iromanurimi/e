@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shafin Gida | Ciki da Raino</title>
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=lato:wght@400;500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    
+</head>
+<body>
+    <hide class="main-content">
+    <!-- Navigation Bar [Menu] -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="./image/logon.svg" alt="Logo"> <label for="">Ciki da Raino</label>
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Shafin Gida</a></li>
+            <li><a class="disabled" href="blog.html">Shirin Daukar Ciki</a></li>
+            <li><a class="disabled" href="blog.html">Goyon Ciki</a></li>
+            <li><a href="contact.html">Tuntuɓe Mu</a></li>
+            <li><a href="about.html">Game Da Mu</a></li>
+            <li><a href="hosapital.html">Asibiti Mafi Kusa</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu [Menu na wayar hannu] -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu-container" id="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <a href="index.html" class="drawer-menu-item">
+                <i class="fas fa-home"></i>
+                <span>Shafin Gida</span>
+            </a>
+            <a href="./ovulation/ovulation.html" class="drawer-menu-item">
+                <i class="fas fa-venus-mars"></i>
+                <span>Kalkuletar Ovulation</span>
+            </a>
+            <a href="./tracker/tracker.html" class="drawer-menu-item">
+                <i class="fas fa-baby-carriage"></i>
+                <span>Bibiyar Ciki</span>
+            </a>
+            <a href="./hospital/hospital.html" class="drawer-menu-item">
+                <i class="fas fa-hospital"></i>
+                <span>Asibitoci Mafi Kusa</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Gida</span>
+        </a>
+        <a href="./ovulation/ovulation.html" class="bottom-nav-item">
+            <i class="fas fa-venus-mars"></i>
+            <span>Ovulation</span>
+        </a>
+        <a href="./tracker/tracker.html" class="bottom-nav-item">
+            <i class="fas fa-baby-carriage"></i>
+            <span>Bibiyar Ciki</span>
+        </a>
+        <a href="./hospital/hospital.html" class="bottom-nav-item">
+            <i class="fas fa-hospital"></i>
+            <span>Asibiti</span>
+        </a>
+        <a href="./marketplace/kasuwa.html" class="bottom-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Kasuwa</span>
+        </a>
+    </nav>
+ 
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade">
+        <div class="hero-content">
+            <h1>Jagora Ga Masu <br><span class="highlight">Ciki Da Raino</span></h1>
+            <p class="hero-subtitle">Domin samun ingantaccen bayani game da 
+                lafiyar uwa da jariri, tun daga lokacin daukar ciki har zuwa
+                rainon yaro tare da kayan aiki da shawarwari masu amfani daga masana.</p>
+        
+            <a class="btn btn-primary" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+                Fara Yanzu <i class="fas fa-arrow-down"></i>
+            </a>
+            
+            <a class="btn btn-primary1"  href="hospital.html">
+              <i class="fas fa-search-location"></i>  Nemo Asibiti 
+            </a>
+        </div>
+        <div class="hero-image">
+            <img src="./image/indeximage.png" alt="Happy pregnant woman" loading="lazy">
+        </div>
+    </section>
+
+
+    <!-- Features Section -->
+    <section class="features" id="features" data-aos="fade-up" style="display: block;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-star"></i> Shirye-Shiryen Mu</h2>
+            <p class="section-subtitle">Kayan aikinmu na musamman don taimakawa a kowane mataki 
+                na tafiyar ku</p>
+            <div class="features-grid">
+                <a href="ovulation.html" class="feature-link">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <h3>Kalkuletar Ovulation</h3>
+                        <p>Hasasho kwanakin da zaku iya daukar ciki da kwanakin ovulation cikin sauki.</p>
+                        <button class="btn btn-primary">Gwada Yanzu</button>
+                    </div>
+                </a>
+                <a href="tracker.html" class="feature-link">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-baby-carriage"></i>
+                        </div>
+                        <h3>Kalkuletar Bibiyar Ciki</h3>
+                        <p>Bibiyi ci gaban jaririnki mako bayan mako tare da shawarwari na musamman da suka da ce.</p>
+                        <button class="btn btn-primary">Fara Bibiya</button>
+                    </div>
+                </a>
+                <a href="#" class="feature-link">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Karanta Makaloli</h3>
+                        <p>Karanta rubuttukamu akan lafiyar uwa da jaririnta a lokacin daukar ciki da raino.</p>
+                        <button class="btn btn-primary">Karanta Yanzu</button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+   <footer class="footer"  style="display: none;">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Ciki da Raino</h3>
+                    <p>Jarida domin lafiyar uwa da ta jariri</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Hanyoyin Hanya</h4>
+                    <ul>
+                        <li><a href="index.html">Shafin Gida</a></li>
+                        <li><a href="about.html">Game Da Mu</a></li>
+                        <li><a href="blog.html">Labarai</a></li>
+                        <li><a href="contact.html">Tuntuɓe Mu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kayan Aiki</h4>
+                    <ul>
+                        <li><a href="ovulation.html">Kalkuletar Ovulation</a></li>
+                        <li><a href="tracker.html">Bibiyar Ciki</a></li>
+                        <li><a href="hospital.html">Asibitoci Mafi Kusa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Kasance da Sabbin Labarai</h4>
+                    <form class="footer-newsletter-form">
+                        <input type="email" placeholder="Adireshin email" required aria-label="Email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p style="color: aliceblue;">&copy; <span id="year"></span> Yar'aro Creative. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">07062121414</a>
+                    <a href="#">cikidarainocommunity@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+</hide>
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenuContainer = document.getElementById('mobile-menu-container');
+        const overlay = document.getElementById('overlay');
+        
+        hamburger.addEventListener('click', function() {
+            mobileMenuContainer.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', function() {
+            mobileMenuContainer.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        overlay.addEventListener('click', function() {
+            mobileMenuContainer.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuContainer.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+       
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active nav link highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+            const currentPage = window.location.pathname.split('/').pop();
+
+            navItems.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+

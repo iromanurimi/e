@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciki da Raino - Kasuwa</title>
+    <!-- Preload resources -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/marketplace.css">
+   
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+   <div class="main-content">
+    <!-- Navigation Bar -->
+     <!-- Navigation Bar [Menu] -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">
+            <img src="../image/logon.svg" alt="Logo"> <label for="">Ciki da Raino</label>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Shafin Gida</a></li>
+            <li><a class="disabled" href="blog.html">Shirin Daukar Ciki</a></li>
+            <li><a class="disabled" href="blog.html">Goyon Ciki</a></li>
+            <li><a href="contact.html">Tuntuɓe Mu</a></li>
+            <li><a href="about.html">Game Da Mu</a></li>
+            <li><a href="hosapital.html">Asibiti Mafi Kusa</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu [Menu na wayar hannu] -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu-container" id="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <a href="../index.html" class="drawer-menu-item">
+                <i class="fas fa-home"></i>
+                <span>Shafin Gida</span>
+            </a>
+            <a href="../ovulation/ovulation.html" class="drawer-menu-item">
+                <i class="fas fa-venus-mars"></i>
+                <span>Kalkuletar Ovulation</span>
+            </a>
+            <a href="../tracker/tracker.html" class="drawer-menu-item">
+                <i class="fas fa-baby-carriage"></i>
+                <span>Bibiyar Ciki</span>
+            </a>
+            <a href="../hospital/hospital.html" class="drawer-menu-item">
+                <i class="fas fa-hospital"></i>
+                <span>Asibitoci Mafi Kusa</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="../index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Gida</span>
+        </a>
+        <a href="../ovulation/ovulation.html" class="bottom-nav-item">
+            <i class="fas fa-venus-mars"></i>
+            <span>Ovulation</span>
+        </a>
+        <a href="../tracker/tracker.html" class="bottom-nav-item">
+            <i class="fas fa-baby-carriage"></i>
+            <span>Bibiyar Ciki</span>
+        </a>
+        <a href="../hospital/hospital.html" class="bottom-nav-item">
+            <i class="fas fa-hospital"></i>
+            <span>Asibiti</span>
+        </a>
+        <a href="../marketplace/kasuwa.html" class="bottom-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Kasuwa</span>
+        </a>
+    </nav>
+ 
+    <!-- Marketplace Hero Section -->
+    <section class="general-hero" data-aos="fade">
+        <div class="container-tracker">
+            <h1>Kasuwar Ciki da Raino</h1>
+            <p>Samu kayayyaki masu dorewa da inganci domin uwa da jariri. Siyayya ta hanyar WhatsApp cikin sauƙi.</p>
+       
+        </div>
+    </section>
+
+
+    <!-- Marketplace Section -->
+    <section class="calculator-section" id="marketplace">
+        <div class="locator-container">
+            <!-- Filters -->
+            <div class="marketplace-filters" data-aos="fade-up">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="category-filter">Nau'in Kayayyaki:</label>
+                        <select id="category-filter">
+                            <option value="all">Duk Kayayyaki</option>
+                            <option value="maternity">Tufafin Ciki</option>
+                            <option value="baby">Kayayyakin Jariri</option>
+                            <option value="health">Lafiya da Tsaro</option>
+                            <option value="books">Littattafai</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="price-filter">Farashi:</label>
+                        <select id="price-filter">
+                            <option value="all">Duk Farashi</option>
+                            <option value="low">Ƙananan Farashi</option>
+                            <option value="medium">Matsakaicin Farashi</option>
+                            <option value="high">Babban Farashi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sort-filter">Tsara Ta:</label>
+                        <select id="sort-filter">
+                            <option value="popular">Shahararrun Kayayyaki</option>
+                            <option value="new">Sababbin Kayayyaki</option>
+                            <option value="price-low">Farashi (Ƙana zuwa Babba)</option>
+                            <option value="price-high">Farashi (Babba zuwa Ƙana)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="search-filter">Nemo Kayayyaki:</label>
+                        <input type="text" id="search-filter" placeholder="Shigar da kalmar bincike...">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="products-grid" id="products-container">
+                <!-- Product 1 -->
+                <div class="product-card" data-aos="fade-up" data-category="maternity" data-price="medium">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Rigar Ciki">
+                        <div class="product-badge">Sabon Samfuri</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tufafin Ciki</div>
+                        <h3 class="product-title">Rigar Ciki Mai Sanyi</h3>
+                        <p class="product-description">Rigar ciki mai dorewa da sanyi don mata masu juna biyu.</p>
+                        <div class="product-price">₦12,500</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(24)</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="openWhatsApp('Rigar Ciki Mai Sanyi', 12500)">
+                                <i class="fab fa-whatsapp"></i> Siyar da WhatsApp
+                            </button>
+                            <button class="btn-details" onclick="openProductModal(0)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100" data-category="baby" data-price="high">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1541095441894-5c7c44cbb7bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kujerar Wankin Jariri">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Kayayyakin Jariri</div>
+                        <h3 class="product-title">Kujerar Wankin Jariri</h3>
+                        <p class="product-description">Kujera mai sauƙin amfani don wanka jariri cikin aminci.</p>
+                        <div class="product-price">₦25,000</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(32)</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="openWhatsApp('Kujerar Wankin Jariri', 25000)">
+                                <i class="fab fa-whatsapp"></i> Siyar da WhatsApp
+                            </button>
+                            <button class="btn-details" onclick="openProductModal(1)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200" data-category="health" data-price="low">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kit ɗin Lafiya">
+                        <div class="product-badge">Rangwame</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Lafiya da Tsaro</div>
+                        <h3 class="product-title">Kit ɗin Lafiya na Uwa</h3>
+                        <p class="product-description">Cikakken kayan lafiya domin kulawar uwa bayan haihuwa.</p>
+                        <div class="product-price">₦8,500</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(18)</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="openWhatsApp('Kit ɗin Lafiya na Uwa', 8500)">
+                                <i class="fab fa-whatsapp"></i> Siyar da WhatsApp
+                            </button>
+                            <button class="btn-details" onclick="openProductModal(2)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300" data-category="books" data-price="low">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Littafin Ciki">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Littattafai</div>
+                        <h3 class="product-title">Jagorar Ciki da Haihuwa</h3>
+                        <p class="product-description">Cikakken littafi game da juna biyu, haihuwa da kula da jariri.</p>
+                        <div class="product-price">₦5,000</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(41)</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="openWhatsApp('Jagorar Ciki da Haihuwa', 5000)">
+                                <i class="fab fa-whatsapp"></i> Siyar da WhatsApp
+                            </button>
+                            <button class="btn-details" onclick="openProductModal(3)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400" data-category="baby" data-price="medium">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kaya na Jariri">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Kayayyakin Jariri</div>
+                        <h3 class="product-title">Cikakken Kayan Jariri</h3>
+                        <p class="product-description">Set din kayan jariri mai ɗauke da duk abin da jariri yake buƙata.</p>
+                        <div class="product-price">₦18,000</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(27)</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="openWhatsApp('Cikakken Kayan Jariri', 18000)">
+                                <i class="fab fa-whatsapp"></i> Siyar da WhatsApp
+                            </button>
+                            <button class="btn-details" onclick="openProductModal(4)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="500" data-category="maternity" data-price="high">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Takalmin Ciki">
+                        <div class="product-badge">Sabon Samfuri</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Tufafin Ciki</div>
+                        <h3 class="product-title">Takalmi Mai Daki-daki Na Ciki</h3>
+                        <p class="product-description">Takalmi mai sauƙi da daki-daki domin mata masu juna biyu.</p>
+                        <div class="product-price">₦15,000</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(38)</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="openWhatsApp('Takalmi Mai Daki-daki Na Ciki', 15000)">
+                                <i class="fab fa-whatsapp"></i> Siyar da WhatsApp
+                            </button>
+                            <button class="btn-details" onclick="openProductModal(5)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Modal -->
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeProductModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="Product Image">
+                </div>
+                <div class="modal-details">
+                    <div class="product-category" id="modal-category"></div>
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <div class="modal-price" id="modal-price"></div>
+                    <div class="product-rating" id="modal-rating"></div>
+                    <p class="modal-description" id="modal-description"></p>
+                    
+                    <div class="modal-features">
+                        <h4>Abubuwan da ke ciki:</h4>
+                        <ul id="modal-features"></ul>
+                    </div>
+                    
+                    <div class="modal-action">
+                        <button class="btn-whatsapp" style="padding: 15px; font-size: 1.1rem;" id="modal-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Siyar da WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        offset: 100,
+        once: true
+    });
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenuContainer = document.getElementById('mobile-menu-container');
+    const overlay = document.getElementById('overlay');
+
+    hamburger.addEventListener('click', function() {
+        mobileMenuContainer.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeMenu.addEventListener('click', function() {
+        mobileMenuContainer.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', function() {
+        mobileMenuContainer.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Product data
+    const products = [
+        {
+            name: "Rigar Ciki Mai Sanyi",
+            category: "Tufafin Ciki",
+            price: "₦12,500",
+            numericPrice: 12500,
+            image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            description: "Rigar ciki mai dorewa da sanyi don mata masu juna biyu. An yi ta da ingantaccen kayan saka wanda ba zai sanya ki zama da zafi ba. Rigar tana da fasali mai dacewa da jikin mace mai ciki.",
+            features: [
+                "An yi amfani da ingantaccen kayan saka",
+                "Yana da sanyin sanyi",
+                "Fasali mai dacewa da jikin mace mai ciki",
+                "Siffar da za ta dace da kowane irin jiki",
+                "Za a iya wankawa a injin wanki"
+            ],
+            rating: 4.5,
+            reviews: 24
+        },
+        {
+            name: "Kujerar Wankin Jariri",
+            category: "Kayayyakin Jariri",
+            price: "₦25,000",
+            numericPrice: 25000,
+            image: "https://images.unsplash.com/photo-1541095441894-5c7c44cbb7bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            description: "Kujera mai sauƙin amfani don wanka jariri cikin aminci. Tana da matattarar ruwa da kuma maballin tsaro don tabbatar da amincin jaririnku yayin wankewa.",
+            features: [
+                "Maballin tsaro don aminci",
+                "Matattarar ruwa",
+                "Siffar ergonomic don dacewa da jikin jariri",
+                "Ana iya dankarewa cikin sauƙi",
+                "An yi da kayan da ba su da illa"
+            ],
+            rating: 5,
+            reviews: 32
+        },
+        {
+            name: "Kit ɗin Lafiya na Uwa",
+            category: "Lafiya da Tsaro",
+            price: "₦8,500",
+            numericPrice: 8500,
+            image: "https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            description: "Cikakken kayan lafiya domin kulawar uwa bayan haihuwa. Ya ƙunshi duk abin da mace ke buƙata don jiki da lafiyanta bayan haihuwa.",
+            features: [
+                "Gauze da bandages",
+                "Magungunan kashe zafi",
+                "Kayan kula da nono",
+                "Abubuwan wanke jiki masu sauƙi",
+                "Jagorar amfani cikin harshen Hausa"
+            ],
+            rating: 4,
+            reviews: 18
+        },
+        {
+            name: "Jagorar Ciki da Haihuwa",
+            category: "Littattafai",
+            price: "₦5,000",
+            numericPrice: 5000,
+            image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            description: "Cikakken littafi game da juna biyu, haihuwa da kula da jariri. An rubuta shi da harshen Hausa mai sauƙi don sauƙin fahimta.",
+            features: [
+                "Cikakken bayani game da juna biyu",
+                "Shawarwari game da abinci mai gina jiki",
+                "Alamomin haihuwa da yadda ake tsaron su",
+                "Jagorar kula da jariri",
+                "Tambura da amsoshi game da ciki"
+            ],
+            rating: 4.5,
+            reviews: 41
+        },
+        {
+            name: "Cikakken Kayan Jariri",
+            category: "Kayayyakin Jariri",
+            price: "₦18,000",
+            numericPrice: 18000,
+            image: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            description: "Set din kayan jariri mai ɗauke da duk abin da jariri yake buƙata. Daga tufafi zuwa kayan wanka, duk abin da kuke buƙata don sabon jariri.",
+            features: [
+                "Tufafi masu girma 5",
+                "Kayan wanka da shafawa",
+                "Gado mai laushi",
+                "Zanen jariri",
+                "Kayan kwalliya masu dadi"
+            ],
+            rating: 4,
+            reviews: 27
+        },
+        {
+            name: "Takalmi Mai Daki-daki Na Ciki",
+            category: "Tufafin Ciki",
+            price: "₦15,000",
+            numericPrice: 15000,
+            image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            description: "Takalmi mai sauƙi da daki-daki domin mata masu juna biyu. Yana ba da goyan baya ga ƙafafu masu nauyi kuma yana sauƙaƙa tafiya.",
+            features: [
+                "Daki-daki mai sauƙi",
+                "Goyan baya ga ƙafafu masu nauyi",
+                "Fata mai numfashi",
+                "Sole mai laushi don kwanciyar hankali",
+                "Zaɓuɓɓukan launi daban-daban"
+            ],
+            rating: 5,
+            reviews: 38
+        }
+    ];
+
+    // Open product modal
+    function openProductModal(index) {
+        const product = products[index];
+        const modal = document.getElementById('product-modal');
+        
+        document.getElementById('modal-img').src = product.image;
+        document.getElementById('modal-category').textContent = product.category;
+        document.getElementById('modal-title').textContent = product.name;
+        document.getElementById('modal-price').textContent = product.price;
+        document.getElementById('modal-description').textContent = product.description;
+        
+        // Set rating
+        const ratingElement = document.getElementById('modal-rating');
+        ratingElement.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('i');
+            if (i <= Math.floor(product.rating)) {
+                star.className = 'fas fa-star';
+            } else if (i === Math.ceil(product.rating) && !Number.isInteger(product.rating)) {
+                star.className = 'fas fa-star-half-alt';
+            } else {
+                star.className = 'far fa-star';
+            }
+            ratingElement.appendChild(star);
+        }
+        
+        const span = document.createElement('span');
+        span.textContent = `(${product.reviews})`;
+        ratingElement.appendChild(span);
+        
+        // Set features
+        const featuresList = document.getElementById('modal-features');
+        featuresList.innerHTML = '';
+        product.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            featuresList.appendChild(li);
+        });
+        
+        // Set WhatsApp button
+        const whatsappBtn = document.getElementById('modal-whatsapp');
+        whatsappBtn.onclick = function() {
+            openWhatsApp(product.name, product.numericPrice);
+        };
+        
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close product modal
+    function closeProductModal() {
+        document.getElementById('product-modal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    // Open WhatsApp for purchase
+    function openWhatsApp(productName, price) {
+        const phoneNumber = "2347062121414"; // Your WhatsApp number
+        const message = `Ina son yin oda don ${productName} akan farashin ₦${price.toLocaleString()}.`;
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    // Filter products
+    document.getElementById('category-filter').addEventListener('change', filterProducts);
+    document.getElementById('price-filter').addEventListener('change', filterProducts);
+    document.getElementById('sort-filter').addEventListener('change', filterProducts);
+    document.getElementById('search-filter').addEventListener('input', filterProducts);
+
+    function filterProducts() {
+        const categoryValue = document.getElementById('category-filter').value;
+        const priceValue = document.getElementById('price-filter').value;
+        const searchValue = document.getElementById('search-filter').value.toLowerCase();
+        const sortValue = document.getElementById('sort-filter').value;
+        
+        const productCards = document.querySelectorAll('.product-card');
+        let visibleCount = 0;
+        
+        productCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const price = card.getAttribute('data-price');
+            const title = card.querySelector('.product-title').textContent.toLowerCase();
+            const description = card.querySelector('.product-description').textContent.toLowerCase();
+            
+            const categoryMatch = categoryValue === 'all' || category === categoryValue;
+            const priceMatch = priceValue === 'all' || price === priceValue;
+            const searchMatch = title.includes(searchValue) || description.includes(searchValue);
+            
+            if (categoryMatch && priceMatch && searchMatch) {
+                card.style.display = 'flex';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Show no products message if no products match the filters
+        const noProducts = document.getElementById('no-products-message');
+        if (visibleCount === 0) {
+            if (!noProducts) {
+                const noProductsDiv = document.createElement('div');
+                noProductsDiv.id = 'no-products-message';
+                noProductsDiv.className = 'no-products';
+                noProductsDiv.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <h3>Babu samfurin da ya dace da zaɓin ku</h3>
+                    <p>Ku sake gwada wani sabon bincike ko ku canza matattarar.</p>
+                `;
+                document.getElementById('products-container').appendChild(noProductsDiv);
+            }
+        } else if (noProducts) {
+            noProducts.remove();
+        }
+        
+        // Sort products
+        sortProducts(sortValue);
+    }
+
+    function sortProducts(sortValue) {
+        const productsContainer = document.getElementById('products-container');
+        const productCards = Array.from(document.querySelectorAll('.product-card[style*="display: flex"]'));
+        
+        productCards.sort((a, b) => {
+            if (sortValue === 'popular') {
+                const aReviews = parseInt(a.querySelector('.product-rating span').textContent.replace(/[()]/g, ''));
+                const bReviews = parseInt(b.querySelector('.product-rating span').textContent.replace(/[()]/g, ''));
+                return bReviews - aReviews;
+            } else if (sortValue === 'new') {
+                // For demonstration, we'll assume newer products have higher data-aos-delay values
+                const aDelay = parseInt(a.getAttribute('data-aos-delay')) || 0;
+                const bDelay = parseInt(b.getAttribute('data-aos-delay')) || 0;
+                return bDelay - aDelay;
+            } else if (sortValue === 'price-low') {
+                const aPrice = parseInt(a.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+                const bPrice = parseInt(b.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+                return aPrice - bPrice;
+            } else if (sortValue === 'price-high') {
+                const aPrice = parseInt(a.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+                const bPrice = parseInt(b.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+                return bPrice - aPrice;
+            }
+            return 0;
+        });
+        
+        // Reappend sorted products
+        productCards.forEach(card => {
+            productsContainer.appendChild(card);
+        });
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('product-modal');
+        if (event.target === modal) {
+            closeProductModal();
+        }
+    });
+
+    // Initialize the product filtering on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        filterProducts();
+    });
+</script>
+</body>
+</html>

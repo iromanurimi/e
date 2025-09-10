@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciki da Raino - Kalkuletar Ovulation</title>
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/ovulation.css">
+</head>
+<body>
+   <div class="main-content">
+    <!-- Navigation Bar [Menu] -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">
+            <img src="../image/logon.svg" alt="Logo"> <label for="">Ciki da Raino</label>
+        </a>
+       
+
+
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Shafin Gida</a></li>
+            <li><a class="disabled" href="blog.html">Shirin Daukar Ciki</a></li>
+            <li><a class="disabled" href="blog.html">Goyon Ciki</a></li>
+            <li><a href="contact.html">Tuntuɓe Mu</a></li>
+            <li><a href="about.html">Game Da Mu</a></li>
+            <li><a href="hosapital.html">Asibiti Mafi Kusa</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu [Menu na wayar hannu] -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu-container" id="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu">
+            <a href="../index.html" class="drawer-menu-item">
+                <i class="fas fa-home"></i>
+                <span>Shafin Gida</span>
+            </a>
+            <a href="../ovulation/ovulation.html" class="drawer-menu-item">
+                <i class="fas fa-venus-mars"></i>
+                <span>Kalkuletar Ovulation</span>
+            </a>
+            <a href="../tracker/tracker.html" class="drawer-menu-item">
+                <i class="fas fa-baby-carriage"></i>
+                <span>Bibiyar Ciki</span>
+            </a>
+            <a href="../hospital/hospital.html" class="drawer-menu-item">
+                <i class="fas fa-hospital"></i>
+                <span>Asibitoci Mafi Kusa</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="../index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Gida</span>
+        </a>
+        <a href="../ovulation/ovulation.html" class="bottom-nav-item">
+            <i class="fas fa-venus-mars"></i>
+            <span>Ovulation</span>
+        </a>
+        <a href="../tracker/tracker.html" class="bottom-nav-item">
+            <i class="fas fa-baby-carriage"></i>
+            <span>Bibiyar Ciki</span>
+        </a>
+        <a href="../hospital/hospital.html" class="bottom-nav-item">
+            <i class="fas fa-hospital"></i>
+            <span>Asibiti</span>
+        </a>
+        <a href="../marketplace/kasuwa.html" class="bottom-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Kasuwa</span>
+        </a>
+    </nav>
+ 
+ 
+    <!-- Hero Section -->
+    <section class="general-hero" data-aos="fade">
+        <div class="container-tracker">
+            <h1>Kalkuletar Ovulation</h1>
+            <p>Domin binciko lokacin da mace take yin ovulation, ranaku 
+                damar samun juna biyu, lokacin gwajin ciki da sauransu.</p>
+        </div>
+    </section>
+
+   <!-- Calculator Section -->
+<section class="calculator-section" id="calculator">
+    <div class="locator-container">
+        <div class="general-card" data-aos="fade-up">
+            <h2 class="ico"><i class="fas fa-calculator"></i> Kalkuletar Ovulation</h2>
+            
+            <!-- Error Message Container -->
+            <div id="error-message" class="error-message-container">
+                <div class="error-content">
+                    <i class="fas fa-exclamation-triangle error-icon"></i>
+                    <p class="error-text"></p>
+                    <button class="error-close-btn" aria-label="Close error message">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Loading Indicator -->
+            <div id="loading-indicator" class="loading-container">
+                <div class="loading-content">
+                    <div class="loading-spinner">
+                        <div class="spinner-circle"></div>
+                        <div class="spinner-circle"></div>
+                        <div class="spinner-circle"></div>
+                    </div>
+                    <p class="loading-text">Ana Lissafawa...</p>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="last-period">Shigar Da LMP Dinki:
+                     <span class="tooltip" aria-label="LMP = Ranar farko da kika fara ganin jinin al'adarki na karshe. Ba wai 
+                         ranar da kikai tsarki ba.">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                </label>
+                <input type="date" id="last-period">
+                <span id="last-period-error" class="error-label"></span>
+            </div>
+            
+            <div class="input-group">
+                <label for="cycle-length">Zabi Kwanakin Zagayen Al'ada:
+                     <span class="tooltip" aria-label="Nan yana nufin Menstrual Cycle dinki, wato adadin kwanakin da kike dauka kafin sake ganin jini al'ada.">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                </label>
+                <select id="cycle-length">
+                    <option value="21">Kwana 21</option>
+                    <option value="22">Kwana 22</option>
+                    <option value="23">Kwana 23</option>
+                    <option value="24">Kwana 24</option>
+                    <option value="25">Kwana 25</option>
+                    <option value="26">Kwana 26</option>
+                    <option value="27">Kwana 27</option>
+                    <option value="28" selected>Kwana 28</option>
+                    <option value="29">Kwana 29</option>
+                    <option value="30">Kwana 30</option>
+                    <option value="31">Kwana 31</option>
+                    <option value="32">Kwana 32</option>
+                    <option value="33">Kwana 33</option>
+                    <option value="34">Kwana 34</option>
+                    <option value="35">Kwana 35</option>
+                </select>
+                <span id="cycle-length-error" class="error-label"></span>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" id="calculate-btn">
+                    <i class="fas fa-calculator"></i> Lissafa
+                </button>
+                <button class="btn btn-primary1" id="reset-btn">
+                    <i class="fas fa-redo"></i> Sake Lissafawa
+                </button>
+            </div>
+        </div>
+     
+        <!-- Redesigned Results Container -->
+        <div class="baby-tracker-container" id="results-container" style="display: none;" data-aos="fade-up">
+            <div class="calendar-container">
+                <h2 style="text-align: center; margin-bottom: 30px;">Sakamakon Lissafi</h2>
+                <div class="calendar-header">
+                    <div class="calendar-navi">
+                        <button class="btn btn-secondary" id="prev-month">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h3 id="current-month">May 2024</h3>
+                        <button class="btn btn-secondary" id="next-month">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <table class="calendar" id="calendar">
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                        <!-- Calendar will be generated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tracker-cards-container">
+                <!-- Ovulation Day Card (Second) -->
+                <div class="tracker-card progress-card">
+                    <div class="card-icon">
+                        <i class="fas fa-egg"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ranar Ovulation
+                            <span class="tooltip" aria-label="Ovulation Date">
+                                 <i class="fas fa-info-circle"></i>
+                            </span>
+                        </h3>
+                        <div class="ovulation-date" id="ovulation-day">May 1, 2024</div>
+                        <div class="ovulation-info">
+                          <p>Wannan ranar da ke sama, ita ce ranar Ovulation (Ma'ana ranar da 
+                            kwai ke fita daga ovary zuwa bututu fallopian). 
+                            Kuma wannan lokaci shi ne mafi 
+                            dacewa ga 'ya mace ta samu ciki.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fertile Window Card (Third) -->
+                <div class="tracker-card baby-dev-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Lokutan Daukar Ciki
+                             <span class="tooltip" aria-label="Fertile Window">
+                                 <i class="fas fa-info-circle"></i>
+                            </span>
+                        </h3>
+                        
+                        <div class="fertile-date" id="fertile-window">May 15, 2024</div>
+
+                        <div class="fertile-info">
+                            <p >Lokutan da ya fi dacewa a yawaita jima'i don 
+                                samun juna biyu a cikinsu.</p>
+
+                            <ul>
+                                <li style="display: none;" class="due-date" id="fertile-window">April 27 - May 3, 2024</li>
+                                <li style="display: none;">Mafi yawan haɗarin ciki: <span id="peak-fertility">May 1</span></li>
+                                <li style="display: none;">Yawan haɗarin ciki: <span id="high-fertility">April 29 - May 2</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Period Card (Fourth) -->
+                <div class="tracker-card due-date-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Haila Ta Gaba
+                            <span class="tooltip" aria-label="Next Period Date">
+                                 <i class="fas fa-info-circle"></i>
+                            </span>
+                        </h3>
+                        <div class="period-date" id="next-period">May 15, 2024</div>
+                         <div class="period-info">
+                        <p  id="period-countdown">Saura Kwanaki biyar ya rage 14 kwanaki sun rage</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregnancy Test Card (Fifth) -->
+                <div class="tracker-card health-tips-card">
+                    <div class="card-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Lokacin Gwajin Ciki
+                             <span class="tooltip" aria-label="Pregnancy Test">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                        </h3>
+                        <div class="test-date" id="test-date-info">May 15, 2024</div>
+                        
+                        <div class="test-info">
+                            <p>Mafi kyau ku jira kwana 1 bayan ranar da kuke 
+                                tsammanin jinin al'ada (May 16, 2024) don mafi ingantaccen sakamako.</p>
+                        </div>
+                        <div class="reminder">
+                            <i class="fas fa-bell"></i> Alamomin farko na shigar ciki: Sun hada da rashin zuwan al'ada, jin gajiya da kasala, ciwon nono, tashin zuciya ko kumallo dss..
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Progress -->
+            <div class="visual-progress-container" style="display:none;">
+                <div class="circular-progress">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring-circle" stroke="#A2D7D8" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="progress-ring-circle progress-ring-fill" stroke="#FF9AA2" stroke-width="8" stroke-dasharray="326.56" stroke-dashoffset="130.624" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="progress-text" id="cycle-progress-text">60%</div> 
+                </div>
+                <div class="pregnancy-timeline">
+                    <div class="timeline-marker" style="left: 60%;">
+                        <div class="marker-dot"></div>
+                        <div class="marker-label">Mako 2</div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Education Section -->
+    <section class="articles" id="resources" data-aos="fade-up" style="display: none;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Albarkatun Fertility</h2>
+            <p class="section-subtitle">Karanta ƙarin bayani game da ovulation da daukar ciki</p>
+            <div class="articles-grid">
+                <div class="article-card" data-aos="fade-up">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Understanding Your Cycle"></div>
+                    <div class="article-content">
+                        <span class="article-category">Ilimi</span>
+                        <h3>Fahimtar Tsarin Al'ada</h3>
+                        <p>Koyi yadda za a bi diddigin tsarin al'adarku da gano ranakunku masu yawan haihuwa.</p>
+                        <a href="#" class="read-more">Karanta ƙarin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Boosting Fertility Naturally"></div>
+                    <div class="article-content">
+                        <span class="article-category">Shawara</span>
+                        <h3>Haɓaka Haihuwa Ta Halitta</h3>
+                        <p>Gano canje-canjen rayuwa waɗanda zasu iya haɓaka damar ku na samun ciki.</p>
+                        <a href="#" class="read-more">Karanta ƙarin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Signs of Ovulation"></div>
+                    <div class="article-content">
+                        <span class="article-category">Ilimi</span>
+                        <h3>Alamun Ovulation</h3>
+                        <p>Gane alamun jiki waɗanda ke nuna cewa kuna cikin ovulation.</p>
+                        <a href="#" class="read-more">Karanta ƙarin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter" data-aos="fade-up" style="display: none;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Kasance da Sabbin Labarai</h2>
+            <p class="section-subtitle">Yi rajista da jaridarmu don samun shawarwari da sabbin bayanai kan ciki a kowane mako.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Shigar da adireshin email dinka" class="newsletter-input" required aria-label="Email address">
+                <button type="submit" class="newsletter-btn">Yi Rajista Yanzu</button>
+            </form>
+        </div>
+    </section>
+
+     <footer class="footer" style="display: none;">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Ciki da Raino</h3>
+                    <p>Jarida domin lafiyar uwa da ta jariri</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Hanyoyin Hanya</h4>
+                    <ul>
+                        <li><a href="index.html">Shafin Gida</a></li>
+                        <li><a href="about.html">Game Da Mu</a></li>
+                        <li><a href="blog.html">Labarai</a></li>
+                        <li><a href="contact.html">Tuntuɓe Mu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kayan Aiki</h4>
+                    <ul>
+                        <li><a href="ovulation.html">Kalkuletar Ovulation</a></li>
+                        <li><a href="tracker.html">Bibiyar Ciki</a></li>
+                        <li><a href="hospital.html">Asibitoci Mafi Kusa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Kasance da Sabbin Labarai</h4>
+                    <form class="footer-newsletter-form">
+                        <input type="email" placeholder="Adireshin email" required aria-label="Email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p style="color: aliceblue;">&copy; <span id="year"></span> Yar'aro Creative. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">07062121414</a>
+                    <a href="#">cikidarainocommunity@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+   <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../js/ovulation.js"></script>
+</body>
+</html>
+

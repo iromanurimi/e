@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+       <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciki da Raino - Kalkuletar Binciko Lokacin Haihuwa</title>
+    <!-- Preload resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tracker.css">
+</head>
+
+<body>
+   <div class="main-content">
+      <!-- Navigation Bar [Menu] -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">
+            <img src="../image/logon.svg" alt="Logo"> <label for="">Ciki da Raino</label>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Shafin Gida</a></li>
+            <li><a class="disabled" href="blog.html">Shirin Daukar Ciki</a></li>
+            <li><a class="disabled" href="blog.html">Goyon Ciki</a></li>
+            <li><a href="contact.html">Tuntuɓe Mu</a></li>
+            <li><a href="about.html">Game Da Mu</a></li>
+            <li><a href="hosapital.html">Asibiti Mafi Kusa</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu [Menu na wayar hannu] -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu-container" id="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <a href="../index.html" class="drawer-menu-item">
+                <i class="fas fa-home"></i>
+                <span>Shafin Gida</span>
+            </a>
+            <a href="../ovulation/ovulation.html" class="drawer-menu-item">
+                <i class="fas fa-venus-mars"></i>
+                <span>Kalkuletar Ovulation</span>
+            </a>
+            <a href="../tracker/tracker.html" class="drawer-menu-item">
+                <i class="fas fa-baby-carriage"></i>
+                <span>Bibiyar Ciki</span>
+            </a>
+            <a href="../hospital/hospital.html" class="drawer-menu-item">
+                <i class="fas fa-hospital"></i>
+                <span>Asibitoci Mafi Kusa</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="../index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Gida</span>
+        </a>
+        <a href="../ovulation/ovulation.html" class="bottom-nav-item">
+            <i class="fas fa-venus-mars"></i>
+            <span>Ovulation</span>
+        </a>
+        <a href="../tracker/tracker.html" class="bottom-nav-item">
+            <i class="fas fa-baby-carriage"></i>
+            <span>Bibiyar Ciki</span>
+        </a>
+        <a href="../hospital/hospital.html" class="bottom-nav-item">
+            <i class="fas fa-hospital"></i>
+            <span>Asibiti</span>
+        </a>
+        <a href="../marketplace/kasuwa.html" class="bottom-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Kasuwa</span>
+        </a>
+    </nav>
+  
+    <!-- Hero Section -->
+    <section class="general-hero" data-aos="fade">
+        <div class="container-tracker">
+            <h1>Kalkuletar Bibiyar Ciki</h1>
+            <p>Kalkuletar Binciko EDD, Makonnin da Watannin Ciki, Zangon Ciki da Kwanakin Da Suka Rage Kafin Haihuwa.</p>
+        </div>
+    </section>
+    
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="dashboard">
+        <div class="locator-container">
+            <div class="general-card" data-aos="fade-up">
+                <h2 class="ico"><i class="fas fa-baby-carriage"></i> Kalkuletar Bibiyar Ciki</h2>
+                
+                <!-- Error Message Container -->
+                <div id="error-message" class="error-message-container">
+                    <div class="error-content">
+                        <i class="fas fa-exclamation-triangle error-icon"></i>
+                        <p class="error-text"></p>
+                        <button class="error-close-btn" aria-label="Close error message">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Loading Indicator -->
+                <div id="loading-indicator" class="loading-container">
+                    <div class="loading-content">
+                        <div class="loading-spinner">
+                            <div class="spinner-circle"></div>
+                            <div class="spinner-circle"></div>
+                            <div class="spinner-circle"></div>
+                        </div>
+                        <p class="loading-text">Ana Lissafawa...</p>
+                    </div>
+                </div>
+                
+                <!-- Help tooltip for calculation method -->
+                <div class="input-group">
+                    <label for="calculation-method">
+                        Zabi Tsarin Bincike:
+                        <span class="tooltip" aria-label="LMP = Ranar farko  da jinin al'ada na karshe 
+                        ya zo miki. EDD = Kiyasin ranar haihuwa bayan kinyi hoton ciki.">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                    </label>
+                    <select id="calculation-method">
+                        <option value="lmp">Bincike da - LMP</option>
+                        <option value="ed">Bincike da - EDD</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="lmp-input">
+                    <label for="last-period">Shigar Da LMP:
+                         <span class="tooltip" aria-label="LMP = Ranar farko da kika fara ganin jinin al'adarki na karshe. Ba wai 
+                         ranar da kikai tsarki ba.">
+                            <i class="fas fa-info-circle"></i>
+                        </span> 
+                   </label>
+                    <input type="date" id="last-period" aria-describedby="lmp-help">
+                    <span id="last-period-error" class="error-label"></span>
+                </div>
+                
+                <div class="input-group" id="ed-input" style="display: none;">
+                    <label for="due-date">Shigar Da EDD Dinki:
+                         <span class="tooltip" aria-label="EDD = EDD = Kiyasin ranar haihuwa bayan kinyi hoton ciki (Ultrasound Scan).">
+                            <i class="fas fa-info-circle"></i>
+                        </span> 
+                    </label>
+                    <input type="date" id="due-date" aria-describedby="ed-help">
+                    <span id="due-date-error" class="error-label"></span>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" id="calculate-btn">
+                        <i class="fas fa-calculator"></i> Lissafa
+                    </button>
+                    <button class="btn btn-primary1" id="reset-btn">
+                        <i class="fas fa-redo"></i> Sake Lissafi
+                    </button>
+                </div>
+            </div>
+            
+            <div class="baby-tracker-container" id="pregnancy-info" style="display: none;">
+                <h2 style="text-align: center; margin-top: 5px; margin-bottom: 7px;">Sakamakon Lissafi</h2>
+
+                <div class="tracker-cards-container">
+
+                      <!-- Visual Progress -->
+                <div class="visual-progress-container" style="display:none">
+                    <div class="circular-progress">
+                        <svg class="progress-ring" width="120" height="120">
+                            <defs>
+                                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#FF6584" />
+                                    <stop offset="100%" stop-color="#6C63FF" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="progress-ring-circle" stroke="#e6e6ff" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                            <circle class="progress-ring-circle progress-ring-fill" stroke-width="8" stroke-dasharray="326.56" stroke-dashoffset="130.624" fill="transparent" r="52" cx="60" cy="60"/>
+                        </svg>
+                        <div class="progress-text" id="circular-progress-text">60%</div>
+                    </div>
+                    <div class="pregnancy-timeline">
+                        <div class="timeline-marker" style="left: 60%;">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Mako 24</div>
+                        </div>
+                    </div>
+                </div>
+              
+                    <!-- Due Date Card -->
+                    <div class="tracker-card due-date-card">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Lokacin Haihuwa
+                                <span class="tooltip" aria-label="EDD = Estimated Due Date">
+                                 <i class="fas fa-info-circle"></i>
+                                </span>
+                            </h3>
+                            <div class="due-date" id="due-date-display">Janairu 5, 2025</div>
+                            <div class="countdown health-tip-period" id="days-remaining">84 kwanaki sun rage</div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Card -->
+                    <div class="tracker-card progress-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Kwanakin Ciki
+                                 <span class="tooltip" aria-label="Gestational Age">
+                                 <i class="fas fa-info-circle"></i>
+                                </span>
+                            </h3>
+                            <div class="week-display" id="current-week">Mako 24, Rana 3</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progress-fill" style="width: 60%;"></div>
+                                </div>
+                                <div class="progress-percent" id="progress-percent">60% cikakke</div>
+                            </div>
+                            <div class="month-display" id="current-month">Wata 5</div>
+                            <div class="trimester-info" id="trimester-info">Zango na 2 (Makonni 13-27)</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Baby Development Card -->
+                    <div class="tracker-card baby-dev-card">
+                        <div class="card-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Ci Gaban Jariri
+                                 <span class="tooltip" aria-label="Baby Develpoment">
+                                 <i class="fas fa-info-circle"></i>
+                                </span>
+                            </h3>
+                            <div class="baby-size" id="baby-size">
+                                <div class="size-comparison">Girman mango</div>
+                                <div class="size-image">
+                                    <img src="https://via.placeholder.com/100x100?text=Mango" alt="Kwatancen girman jariri" id="baby-size-image">
+                                </div>
+                            </div>
+                            <div class="baby-milestones health-tip-fertile" id="baby-milestones">
+                                <ul>
+                                    <li>Idanu sun fara buɗewa</li>
+                                    <li>Ana haɓaka ƙwanƙwasa dandano</li>
+                                    <li>Ana yin motsin numfashi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                   <!-- New Week Details Section -->
+                <div class="tracker-card health-tips-card" id="week-details">
+                    <div class="card-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                    <h3> Bayanan Mako na <span id="current-week-number">24</span>   <i class="fas fa-info-circle"></i></h3>
+                     <br>
+                    <div class="week-tabs">
+                        <div class="week-tab active" data-tab="changes">Canje-canje a Jikin Mai Ciki</div>
+                        <div class="week-tab" data-tab="problems">Matsaloli da za ta iya Fuskanta</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="changes-content">
+                        <ul class="changes-list" id="changes-list">
+                            <li>Ciki yana ƙara girma sosai</li>
+                            <li>Za ka iya fara jin matsi a ƙirji da ciki</li>
+                            <li>Zaɓi na iya farawa (Braxton Hicks contractions)</li>
+                            <li>Fata na iya ƙara zama mai laushi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-content" id="problems-content">
+                        <ul class="problems-list" id="problems-list">
+                            <li>Ciwon baya saboda nauyin ciki</li>
+                            <li>Matakin ƙarfe na jini ƙasa (anemia)</li>
+                            <li>Matsin jini na iya tashi</li>
+                            <li>Ciwon kafa da ƙuraje</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Health Tips Card -->
+            <div class="tracker-card health-tips-card">
+                        <div class="card-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Shawarwari na Wannan Mako</h3>
+                            <div class="health-tip" id="health-tip">
+                                <p>Ƙara yawan abinci mai ƙarfe kamar ganye da naman rago don tallafawa girma da hana anemia.</p>
+                            </div>
+                            <div class="reminder" id="reminder">
+                                <i class="fas fa-bell"></i> Kar a manta da ziyarar kula da ciki a wannan mako!
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            
+
+                
+             
+            <!-- EDD Completed Container -->
+            <div id="edd-completed-container" class="edd-completed-container" style="display: none;">
+                <div class="edd-completed-icon">
+                    <i class="fas fa-baby"></i>
+                </div>
+                <h2 class="edd-completed-title">Lokacin Haihuwa Ya Wuce</h2>
+                <p class="edd-completed-message">
+                    Ranar haihuwar da kika shigar ta wuce. Wannan yana nufin cewa watakila an riga an haifi jariri, 
+                    ko kuma ana jiran haihuwa a kowane lokaci.
+                </p>
+                
+                <div class="suggestion-list">
+                    <h3>Abubuwan da za ka iya yi:</h3>
+                    <ul>
+                        <li>Tuntuɓi likita ko ungozoma don shawarwari</li>
+                        <li>Yi gwajin ciki idan baka taba yin haka ba</li>
+                        <li>Duba alamomin haihuwa kamar fashewar ciki ko ruwan ciki</li>
+                        <li>Shirya kayan haihuwa da kayan jariri</li>
+                    </ul>
+                </div>
+                
+                <button class="btn btn-primary" id="contact-doctor-btn">
+                    <i class="fas fa-phone-alt"></i> Tuntuɓi Likita
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section class="articles" id="resources" data-aos="fade-up" style="display: none;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Albarkatun Ilmantarwa</h2>
+            <p class="section-subtitle">Karanta ƙarin bayani game da ciki da haihuwa</p>
+            <div class="articles-grid">
+                <div class="article-card" data-aos="fade-up">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Understanding Pregnancy"></div>
+                    <div class="article-content">
+                        <span class="article-category">Ilimi</span>
+                        <h3>Fahimtar Tsarin Haiku</h3>
+                        <p>Koyi yadda ake bin diddigin lokacin haiku da gano ranaku masu yawan haifuwa.</p>
+                        <a href="#" class="read-more">Kara karantawa <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Boosting Fertility Naturally"></div>
+                    <div class="article-content">
+                        <span class="article-category">Shawara</span>
+                        <h3>Ƙara Haifuwa ta Halitta</h3>
+                        <p>Gano canje-canjen rayuwa waɗanda zasu iya inganta damar haihuwa.</p>
+                        <a href="#" class="read-more">Kara karantawa <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Signs of Ovulation"></div>
+                    <div class="article-content">
+                        <span class="article-category">Ilimi</span>
+                        <h3>Alamun Ovulation</h3>
+                        <p>Gano alamun jiki waɗanda ke nuna cewa kuna cikin ovulation.</p>
+                        <a href="#" class="read-more">Kara karantawa <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter" data-aos="fade-up" style="display: none;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Kasance da Sabbin Labarai</h2>
+            <p class="section-subtitle">Yi rajista da jaridarmu don samun shawarwari da sabbin bayanai kan ciki a kowane mako.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Shigar da adireshin email dinka" class="newsletter-input" required aria-label="Email address">
+                <button type="submit" class="newsletter-btn">Yi Rajista Yanzu</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer" style="display: none;">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Ciki da Raino</h3>
+                    <p>Jarida domin lafiyar uwa da ta jariri</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Hanyoyin Hanya</h4>
+                    <ul>
+                        <li><a href="index.html">Shafin Gida</a></li>
+                        <li><a href="about.html">Game Da Mu</a></li>
+                        <li><a href="blog.html">Labarai</a></li>
+                        <li><a href="contact.html">Tuntuɓe Mu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kayan Aiki</h4>
+                    <ul>
+                        <li><a href="ovulation.html">Kalkuletar Ovulation</a></li>
+                        <li><a href="tracker.html">Bibiyar Ciki</a></li>
+                        <li><a href="hospital.html">Asibitoci Mafi Kusa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Kasance da Sabbin Labarai</h4>
+                    <form class="footer-newsletter-form">
+                        <input type="email" placeholder="Adireshin email" required aria-label="Email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p style="color: aliceblue;">&copy; <span id="year"></span> Yar'aro Creative. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">07062121414</a>
+                    <a href="#">cikidarainocommunity@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="../js/tracker.js"></script>
+</body>
+
